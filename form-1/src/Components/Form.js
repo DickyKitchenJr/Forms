@@ -8,6 +8,8 @@ function Form() {
         console.log("I've been clicked");
         setFlip(1);
     }
+    
+// GOAL: to create a form that takes in data, does a flip animation, clears the data, and places data in a list
 
   return (
     <>
