@@ -1,7 +1,7 @@
 import React from "react";
 import "./FormOutput.css";
 
-function FormOutput(props) {
+function FormOutput({ list }) {
   return (
     <>
       <table>
@@ -13,11 +13,16 @@ function FormOutput(props) {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>PlaceHolder 1</td>
-            <td>PlaceHolder 2</td>
-            <td>PlaceHolder 3</td>
-          </tr>
+          {list.map((list, index) => {
+            const { id, item, quantity, store } = list;
+            return (
+              <tr key={id}>
+                <td>{item}</td>
+                <td>{quantity}</td>
+                <td>{store}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </>
