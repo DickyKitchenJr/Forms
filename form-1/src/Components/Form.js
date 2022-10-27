@@ -1,30 +1,35 @@
-import React, { useState } from 'react'
-import FormOutput from './FormOutput';
-import './Form.css';
+import React, { useState } from "react";
+import FormOutput from "./FormOutput";
+import "./Form.css";
 
 function Form() {
-    const [item, setItem] = useState('');
-    const [quantity, setQuantity] = useState('');
-    const [store, setStore] = useState('');
-    const [list, setList] = useState([])
-    const [flip, setFlip] = useState(0);
+  const [item, setItem] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [store, setStore] = useState("");
+  const [list, setList] = useState([]);
+  const [flip, setFlip] = useState(0);
 
-    const handleClick = () => {
-        setFlip(1);
-        if(item && quantity && store){
-          const listRow = {id: new Date().getTime().toString() , item, quantity, store};
-          setList((list) => {
-            return [...list, listRow]
-          });
-          setItem('');
-          setQuantity('');
-          setStore('');
-        } else {
-          alert('All entries required.')
-        }
+  const handleClick = () => {
+    setFlip(1);
+    if (item && quantity && store) {
+      const listRow = {
+        id: new Date().getTime().toString(),
+        item,
+        quantity,
+        store,
+      };
+      setList((list) => {
+        return [...list, listRow];
+      });
+      setItem("");
+      setQuantity("");
+      setStore("");
+    } else {
+      alert("All entries required.");
     }
-    
-// GOAL: to create a form that takes in data, does a flip animation, clears the data, and places data in a list
+  };
+
+  // GOAL: to create a form that takes in data, does a flip animation, clears the data, and places data in a list
 
   return (
     <>
@@ -74,4 +79,4 @@ function Form() {
   );
 }
 
-export default Form
+export default Form;
