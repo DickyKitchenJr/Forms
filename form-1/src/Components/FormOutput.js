@@ -13,7 +13,7 @@ function FormOutput({ list }) {
           </tr>
         </thead>
         <tbody>
-          {list.map((list, index) => {
+          {list.map((list) => {
             const { id, item, quantity, store } = list;
             return (
               <tr key={id}>
