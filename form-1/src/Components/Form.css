@@ -2,7 +2,10 @@ form {
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    border: 3px dashed black;
+    outline: 4px solid darkcyan;
+    outline-offset: -0.4rem;
+    background-color: white;
+    border: 3px solid black;
     padding: 1rem;
 }
 
