@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import FormOutput from "./FormOutput";
 import "./Form.css";
 
@@ -8,6 +8,34 @@ function Form() {
   const [store, setStore] = useState("");
   const [list, setList] = useState([]);
   const [flip, setFlip] = useState(0);
+
+  const blankItem = useRef(null);
+  const blankQuantity = useRef(null);
+  const blankStore = useRef(null);
+
+  const handleItemRef = () => {
+    if(item === ""){
+      return blankItem.current.focus();
+    } else {
+      return
+    }
+  }
+
+  const handleQuantityRef = () => {
+    if (quantity === "") {
+      return blankQuantity.current.focus();
+    } else {
+      return;
+    }
+  };
+
+  const handleStoreRef = () => {
+    if (store === "") {
+      return blankStore.current.focus();
+    } else {
+      return;
+    }
+  };
 
   const handleClick = () => {
     setFlip(1);
@@ -26,6 +54,9 @@ function Form() {
       setStore("");
     } else {
       alert("All entries required.");
+      handleStoreRef();
+      handleQuantityRef();
+      handleItemRef();
     }
   };
 
@@ -37,6 +68,7 @@ function Form() {
         <label htmlFor="item">Item:</label>
         <br />
         <input
+          ref={blankItem}
           type="text"
           name="item"
           value={item}
@@ -51,6 +83,7 @@ function Form() {
         <label htmlFor="quantity">Amount:</label>
         <br />
         <input
+          ref={blankQuantity}
           type="text"
           name="quantity"
           value={quantity}
@@ -62,6 +95,7 @@ function Form() {
         <label htmlFor="store">Store:</label>
         <br />
         <input
+          ref={blankStore}
           type="text"
           name="store"
           value={store}
